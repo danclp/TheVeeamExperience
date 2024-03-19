@@ -1,0 +1,42 @@
+.extrainfo {
+	background: image("bg-extrainfo.jpg") 32% center/cover no-repeat;
+	
+	&-box {
+		@include translate(-50%, -60%);
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		overflow: hidden;
+		width: 85%;
+		
+		em {
+			font-style: normal;
+		} // em
+	} // -box
+	
+	@include breakpoint($tablet) {
+		&-box {
+			padding: 20px;
+			width: 60%;
+		} // -box
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		&-box {
+			padding: 30px;
+			width: 50%;
+		} // -box
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		&-box {
+			width: 40%;
+		} // -box
+	} // bp($common)
+	
+	@include breakpoint(2000px) {
+		&-box {
+			width: 30%;
+		} // -box
+	} // bp(2000px)
+} // .extrainfo

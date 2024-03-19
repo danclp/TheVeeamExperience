@@ -1,0 +1,94 @@
+.home {
+	background: image("bg-home.jpg") 75% center/cover no-repeat;
+
+	.site_branding {
+		overflow: hidden;
+		
+		&-logo {
+			width: 200px;
+		} // -logo
+
+		&-message {
+			margin-top: 60px;
+			overflow: hidden;
+			width: 80%;
+		} // -message
+
+		h2 {
+			@include fluid-type(390px, 1920px, 50px, 180px);
+			line-height: 0.85;
+			margin-top: 0;
+			margin-bottom: 30px;
+		} // h2
+
+		p {
+			@include fluid-type(390px, 1920px, 18px, 38px);
+			line-height: 1;
+			width: 85%;
+		} // p
+	} // .site_branding
+
+	.scroll_down {
+		@include translate(-50%, 0);
+		text-align: center;
+		position: absolute;
+		bottom: 25px;
+		left: 50%;
+		width: 50%;
+
+		p {
+			@include fluid-type(390px, 1900px, 16px, 20px);
+			line-height: 1.15;
+		} // p
+		
+		&-text {
+			overflow: hidden;
+		} // -text
+		
+		&-arrow {
+			margin: 10px auto 0;
+			width: 20px;
+		} // -arrow
+		
+		// &:after {
+		// 	background: image("arrow-down.png") center center/20px no-repeat;
+		// 	content: '';
+		// 	display: block;
+		// 	margin: 10px auto 0;
+		// 	width: 20px;
+		// 	height: 20px;
+		// } // :after
+	} // .scroll_down
+	
+	@include breakpoint($tablet) {
+		.site_branding {
+			&-message {
+				margin-top: 100px;
+			} // -message
+		} // .site_branding
+	} // bp($table)
+	
+	@include breakpoint($common) {
+		.site_branding {
+			&-logo {
+				width: 250px;
+			} // -logo
+		} // .site_branding
+	} // bp($common)
+	
+	@include breakpoint($widescn) {
+		.site_branding {
+			&-logo {
+				width: 350px;
+			} // -logo
+		} // .site_branding
+	} // bp($widescn)
+	
+	@include breakpoint(2000px) {
+		.site_branding {
+			&-message {
+				margin-top: 250px;
+			} // -message
+		} // .site_branding
+	} // bp(2000px)
+} // .home

@@ -1,0 +1,116 @@
+.recoverdata {
+	background: image("bg-recover.jpg") 20% center/cover no-repeat;
+	
+	&-header {
+		overflow: hidden;
+	} // -header
+	
+	&-intro {
+		overflow: hidden;
+		text-align: center;
+	} // -intro
+	
+	h3 {
+		color: site-color('night');
+		margin-bottom: 0;
+	} // h3
+	
+	.quotebox {
+		display: block;
+		margin: 20px auto 0;
+		position: relative;
+		text-align: left;
+		
+		em {
+			// color: site-color('primary');
+			font-style: normal;
+		} // em
+		
+		span {
+			display: block;
+		} // span
+		
+		.quotemark {
+			position: absolute;
+			width: 30px;
+		} // .quotemark
+		
+		.open {
+			top: 15px;
+			left: 15px;
+		} // .open
+		
+		.close {
+			bottom: 15px;
+			right: 15px;
+		} // .close
+		
+		&-intro {
+			padding: 20px;
+			
+			p {
+				@include fluid-type(390px, 1900px, 18px, 50px);
+				line-height: 1.25;
+			} // p
+		} // -intro
+	} // .quotebox
+	
+	@include breakpoint($tablet) {
+		.quotebox {
+			width: 70%;
+		} // .quotebox
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		&-intro {
+			position: absolute;
+			right: 0;
+			width: 70%;
+		} // -intro
+		
+		.quotebox {
+			width: 80%;
+
+			.quotemark {
+				width: 60px;
+			} // .quotemark
+			
+			.open {
+				top: 30px;
+				left: 30px;
+			} // .open
+			
+			.close {
+				bottom: 30px;
+				right: 30px;
+			} // .close
+			
+			&-intro {
+				padding: 60px;
+			} // -intro
+		} // .quotebox
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		.quotebox {
+			width: 70%;
+		} // .quotebox
+	} // bp($common)
+	
+	@include breakpoint($widescn) {		
+		.quotebox {
+
+			.quotemark {
+				width: 80px;
+			} // .quotemark
+			
+			width: 65%;
+		} // .quotebox
+	} // bp($widescn)
+	
+	@include breakpoint(2000px) {		
+		.quotebox {			
+			width: 50%;
+		} // .quotebox
+	} // bp(2000px)
+} // .recoverdata

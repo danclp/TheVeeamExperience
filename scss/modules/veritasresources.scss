@@ -1,0 +1,131 @@
+.veritasresources {
+	background: image("bg-veritasres.jpg") 80% center/cover no-repeat;
+	
+	&-content {
+		overflow: hidden;
+		
+		h5 {
+			@include fluid-type(390px, 1900px, 16px, 36px);
+			color: site-color('night');
+		} // h5
+	} // -content
+		
+	&-txt {
+		align: {
+			content: flex-start;
+			items: flex-start;
+		} // align
+		justify-content: flex-start;
+		margin-bottom: 10px;
+		width: 65%;
+		
+		p {
+			line-height: 1.15;
+		} // p
+		
+		em {
+			// color: site-color('primary');
+			font-style: normal;
+		} // em
+	} // -txt
+	
+	.readmoreinfo {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		
+		align: {
+			content: flex-start;
+			items: flex-start;
+		} // align
+		justify-content: flex-start;
+		
+		p {
+			@include fluid-type(390px, 1900px, 18px, 45px);
+			line-height: 1.25;
+		} // p
+		
+		a {
+			@include fluid-type(390px, 1900px, 16px, 36px);
+			background: site-color('primary');
+			border-radius: 5px;
+			color: site-color('day');
+			padding: 10px 5px;
+			text-align: center;
+		} // a
+	} // .readmoreinfo
+	
+	@include breakpoint($tablet) {
+		&-content {
+			h5 {
+				margin-bottom: 30px;
+			} // h5
+		} // -content
+		
+		&-intro {
+			display: flex;
+			gap: 20px;
+		} // -intro
+		
+		&-txt {
+			float: left;
+			margin-bottom: 0;
+			width: calc(((100% / 6) * 2) - 10px );
+		} // -txt
+		
+		.readmoreinfo {
+			padding: 30px;
+		} // .readmoreinfo
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		&-content {
+			width: calc((100% / 12) * 7);
+			
+			h5 {
+				margin-top: 0;
+			} // h5
+		} // -content
+	
+		.readmoreinfo {
+			@include translate(0, -50%);
+			overflow: hidden;
+			padding: 20px;
+			position: absolute;
+			top: 50%;
+			width: 50%;
+		} // .readmoreinfo
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		&-content {
+			h5 {
+				margin-bottom: 60px;
+			} // h5
+		} // -content
+		
+		.readmoreinfo {
+			padding: 30px;
+		} // .readmoreinfo
+	} // bp($common)
+	
+	@include breakpoint($widescn) {
+		.readmoreinfo {
+			padding: 80px;
+		} // .readmoreinfo
+	} // bp($widescn)
+	
+	@include breakpoint(2000px) {
+		&-content {
+			width: calc((100% / 12) * 8);
+		} // -content
+		
+		&-txt {
+			padding: 35px;
+		} // -txt
+		
+		.readmoreinfo {
+			width: 45%;
+		} // .readmoreinfo
+	} // bp(2000px)
+} // .veritasresources

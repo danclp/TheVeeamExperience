@@ -1,0 +1,22 @@
+// Media Query
+$narrow 	          : 340px;
+$tablet 	          : 768px;
+$desktop 	          : 980px;
+$common             : 1366px;
+$widescn 	          : 1920px;
+
+// Font-weight
+$font-weight: (
+	'light'           : 300,
+	'regular'         : 400,
+	'bold' 			      : 700,
+	'black'   	      : 900
+);
+
+// Color Swatches
+$site-colors: (
+  'primary'         : #00D15F,
+  'blue'            : #3700FF,
+  'night'           : #000,
+  'day'             : #FFF
+);

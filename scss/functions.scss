@@ -1,0 +1,112 @@
+// Asset Path
+// Reference: https://css-tricks.com/snippets/sass/simple-asset-helper-functions/
+/// Base path for assets (fonts, images...),
+/// should not include trailing slash
+/// @access public
+/// @type String
+$asset-base-path: '../' !default;
+
+/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + $type + '/' + $file);
+}
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('images', $file);
+}
+
+/// Font asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+
+// Typo 
+$base-font-size     : 1rem;
+$base-line-height   : $base-font-size * 1.25;
+
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height * 2
+  ),
+  2: (
+    font-size: 1.778rem,
+    line-height: $base-line-height * 2
+  )
+);
+
+@function type-scale($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'line-height');
+}
+
+@function weight($weight) {
+  @return map-get($font-weight, $weight);
+};
+  
+$fontFamily         : "ESBuildFullBauhaus", Arial, Helvetica, sans-serif;
+$mainFont           : weight('regular') 1em/1.5 $fontFamily;
+
+// Setup the function in your functions or helpers files, wherever you keep these bits.
+@function headings($from:1, $to:6) {
+    @if $from == $to {
+        @return 'h#{$from}';
+    } @else {
+        @return 'h#{$from},' + headings($from+1, $to);
+    }
+}
+
+@function site-color($name) {
+  @return map-get($site-colors, $name); // Sometime you will see "s" at the end of the word, it is just the phural singular grammer thingy
+};
+
+// Grid System
+$columns: 12;
+$gutter: 5%;
+
+@function grid-width($cols, $has-gutter:false) {
+  @if $has-gutter {
+    @return calc(((100% / #{$columns}) * #{$cols}) - #{$gutter});
+  } @else {
+    @return calc((100% / #{$columns}) * #{$cols});
+  }
+}
+
+// Flexbox Grid
+// Refer to https://codepen.io/kevinpowell/pen/XMLMVE
+$columns: 12;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    flex: 0 0 100% / $columns * $i;
+  }
+  .col-offset-#{$i} {
+    margin-left: 100% / $columns * $i;
+  }
+}

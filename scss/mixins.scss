@@ -1,0 +1,214 @@
+@mixin e($element) {
+	&__#{$element} {
+		@content;
+	}
+} // element
+
+@mixin m($modifier) { 
+	&--#{$modifier} {
+		@content;
+	}
+} // modifier
+
+// Box-sizing
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing: $type;
+	box-sizing: $type;
+}
+
+// Clearfix
+@mixin clearfix() {
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		display: block;
+		clear: both;
+		height: 1px;
+		margin-top: -1px;
+		visibility: hidden;
+	}
+
+	&{
+		*zoom: 1;
+	}
+}
+
+// Type Setting
+@mixin type-setting($level) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+// Responsive Type
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+// Grids
+@mixin grid($cols, $mgn) {
+	float: left;
+	margin-right: $mgn;
+	margin-bottom: $mgn;
+	width: ((100% - (($cols - 1) * $mgn)) / $cols );
+
+	&:nth-child(#{$cols}n) {
+		margin-right: 0;
+	}
+}
+
+// Position
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+	position: $type;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+// Media Query
+@mixin breakpoint($arg...){
+	@if length($arg) == 1 {
+		@media screen and (min-width: nth($arg, 1)) {
+			@content; 
+		}
+	}
+	@if length($arg) == 2 {
+		@media screen and (min-width: nth($arg, 1)) and (max-width: nth($arg, 2)) {
+			@content;
+		}
+	}
+}
+
+// Media Query for special device
+@mixin retina($media) {
+  @if $media == iPhone {
+    @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+  }
+  @else if $media == iPhonel {
+    @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @else if $media == iPhonep {
+    @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (orientation : portrait) {
+      @content;
+    }
+  }
+  @else if $media == iPad {
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+      @content;
+    }
+  }
+  @else if $media == iPadl {
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+      @content;
+    }
+  }
+  @else if $media == iPadp {
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+      @content;
+    }
+  }
+}
+
+// CSS3 Animation
+// Transform
+@mixin transform($string) {
+	-webkit-transform: $string;
+	-moz-transform: $string;
+	-ms-transform: $string;
+	-o-transform: $string;
+	transform: $string;
+}
+
+// Rotate
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+// Scale
+@mixin scale($factor) {
+	-webkit-transform: scale($factor);
+	-moz-transform: scale($factor);
+	-ms-transform: scale($factor);
+	-o-transform: scale($factor);
+	transform: scale($factor);
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	-webkit-transform: translate($x, $y);
+	-moz-transform: translate($x, $y);
+	-ms-transform: translate($x, $y);
+	-o-transform: ranslate($x, $y);
+	transform: translate($x, $y);
+}
+
+// Transition
+@mixin transition($string: all 0.35s ease-in-out) {
+	-webkit-transition: $string;
+	-moz-transition: $string;
+	-ms-transition: $string;
+	-o-transition: $string;
+	transition: $string;
+}
+
+// Keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+// $str = $name Duration Timing-function Delay Infinite Direction Fill-mode
+// $name = Name of keyframe
+// Duration = 0s
+// Timing-function = linear, ease-in-out etc
+// Delay = 0s
+// Infinite = continuos
+// Direction = normal, reverse, alternate, alternate-reverse
+// Fill-mode = none, forward, backward, both
+@mixin animation($str) {
+	-webkit-animation: #{$str};
+	-moz-animation: #{$str};
+	-o-animation: #{$str};
+	animation: #{$str};
+}

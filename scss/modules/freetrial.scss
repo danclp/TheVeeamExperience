@@ -1,0 +1,45 @@
+.freetrial {
+	&-msg {
+		overflow: hidden;
+	} // -msg
+	
+	.blue-button {
+		@include fluid-type(390px, 1900px, 20px, 60px);
+		margin-bottom: 20px;
+	} // .blue-button
+
+	&-logo {
+		position: absolute;
+		bottom: 3%;
+		right: 3%;
+		width: calc((100% / 4) * 2 );
+	} // -logo
+	
+	@include breakpoint($tablet) {
+		.blue-button {
+			margin-bottom: 40px;
+		} // .blue-button
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		&-logo {
+			width: calc((100% / 12) * 4 );
+		} // -logo
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		.blue-button {
+			margin-bottom: 50px;
+		} // .blue-button
+	} // bp($common)
+	
+	@include breakpoint(2000px) {
+		.blue-button {
+			margin-bottom: 60px;
+		} // .blue-button
+		
+		&-logo {
+			width: calc((100% / 12) * 5 );
+		} // -logo
+	} // bp(2000px)
+} // .freetrial

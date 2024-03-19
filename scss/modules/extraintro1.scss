@@ -1,0 +1,54 @@
+.extraintro-1 {
+	background: image("bg-extraintro.jpg") 25% center/cover no-repeat;
+	
+	&_content {
+		&__txt {
+			color: site-color('night');
+			margin: 0 auto;
+			overflow: hidden;
+			text-align: center;
+			width: 80%;
+				
+			h3, .h3 {
+				color: site-color('primary');
+				margin-top: 30px;
+			} // h3, .h3
+			
+			.blue-button, .h3 {
+				@include translate(-50%, 0);
+				position: absolute;
+				bottom: 10%;
+				left: 50%;
+				width: 60%;
+			} //.blue-button, .h3
+			
+			&___2 {
+				display: none;
+				opacity: 0;
+				visibility: hidden;
+			} // _2
+		} // _txt
+	} // &-content
+	
+	@include breakpoint($desktop) {
+		&_content {
+			padding-top: calc((1080/1920) * 100% );
+			position: relative;
+			
+			&__txt {
+				@include translate(0, -35%);
+				margin: 0;
+				position: absolute;
+				top: 35%;
+				right: 3%;
+				text-align: left;
+				width: 40%;
+			} // _txt
+			
+			.blue-button, .h3 {
+				position: relative;
+				width: 100%;
+			} // .blue-button, .h3
+		} // -content
+	} // bp($desktop)
+} // .extraintro

@@ -1,0 +1,53 @@
+.immensechallenges {
+	background: image("bg-immense.jpg") 55% center/cover no-repeat;
+
+	h3 {
+		color: site-color('night');
+	} // h3
+	
+	p {
+		line-height: 1.15;
+	} // p
+} // .immensechallenges
+
+.immense {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	margin-top: 50px;
+
+	&-box {
+		max-width: 265px;
+		max-height: 265px;
+  	width: calc(((100% / 4) * 2 ) - 8px );
+  	height: calc((60vh / 3) - 8px );
+  	// height: 120px;
+	} // -box
+	
+	@include breakpoint($tablet) {
+		width: 50%;
+		
+  	&-box {
+  		width: calc(((100% / 6) * 3 ) - 8px );
+	  	height: calc((50vh / 3) - 8px );
+  	} // -box
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		width: 60%;
+			
+  	&-box {
+  		width: calc(((100% / 12) * 3.85 ) - 8px );
+	  	height: calc((90vh / 3) - 8px );
+  	} // -box
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		width: 55%;
+			
+  	&-box {
+  		width: calc(((100% / 12) * 3.85 ) - 8px );
+	  	height: calc((80vh / 3) - 8px );
+  	} // -box
+	} // bp($common)
+} // .immense

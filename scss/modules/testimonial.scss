@@ -1,0 +1,71 @@
+.testimonial {
+	background: image("bg-testimonial.jpg") 60% center/cover no-repeat;
+	
+	&-content {
+		@include translate(0, -50%);
+		position: absolute;
+		top: 50%;
+		width: 80%;
+	} // -content
+	
+	&-block {
+		&_2 {
+			display: none;
+			opacity: 0;
+			visibility: hidden;
+		} // _2
+		
+		&_txt {
+			align: {
+				content: flex-start;
+				items: flex-start;
+			} // align
+			justify-content: flex-start;
+			
+			p {
+				@include fluid-type(390px, 1900px, 20px, 48px);
+			} // p
+			
+			em {
+				// color: site-color('primary');
+				font-style: normal;
+			} // em
+		} // _txt
+		
+		a {
+			@include fluid-type(390px, 1900px, 16px, 36px);
+			background: site-color('primary');
+			border-radius: 5px;
+			color: site-color('day');
+			margin-top: 20px;
+			padding: 10px 5px;
+			text-align: center;
+		} // a
+	} // -block
+	
+	@include breakpoint($tablet) {
+		&-content {
+			width: 50%;
+		} // -content
+	
+		&-block {
+			&_txt {
+				padding: 30px;
+			} // _txt
+		} // -block
+	} // bp($tablet)
+	
+	@include breakpoint($common) {
+		&-content {
+			width: 40%;
+		} // -content
+	} // bp($common)
+	
+	@include breakpoint($widescn) {
+		&-block {
+			&_txt {
+				padding: 40px 50px;
+			} // _txt
+		} // -block
+	} // bp($widescn)
+} // .testimonial

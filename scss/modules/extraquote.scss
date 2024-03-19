@@ -1,0 +1,127 @@
+.extraquote {
+	background: image("bg-extraquote.jpg") 80% center/cover no-repeat;
+	
+	.quotebox {
+		@include translate(-50%, 0);
+		display: block;
+		position: absolute;
+		bottom: 5%;
+		left: 50%;
+		text-align: left;
+		width: 85%;
+		
+		em {
+			// color: site-color('primary');
+			font-style: normal;
+		} // em
+		
+		&-intro {
+			position: relative;
+			
+			.quotemark {
+				position: absolute;
+				width: 40px;
+			} // .quotemark
+			
+			.open {
+				top: 0;
+				left: 0;
+			} // .open
+			
+			.close {
+				bottom: 0;
+				right: 0;
+			} // .close
+		
+			// &:before, &:after {
+			// 	content: '';
+			// 	position: absolute;
+			// 	width: 40px;
+			// 	height: 40px;
+			// } // :before, :after
+			
+			// &:before {
+			// 	background: image("openquote.png") center center/100% no-repeat;
+			// 	top: 0;
+			// 	left: 0;
+			// } // :before
+			
+			// &:after {
+			// 	background: image("closequote.png") center center/100% no-repeat;
+			// 	bottom: 0;
+			// 	right: 0;
+			// } // :after
+			
+			p {
+				@include fluid-type(390px, 1900px, 18px, 50px);
+				line-height: 1.25;
+				margin-bottom: 0;
+				padding: 30px;
+			} // p
+		} // -intro
+	} // .quotebox
+	
+	@include breakpoint($tablet) {
+		.quotebox {
+			&-intro {
+				.quotemark {
+					position: absolute;
+					width: 60px;
+				} // .quotemark
+				
+				// &:before, &:after {
+				// 	width: 60px;
+				// 	height: 60px;
+				// } // :before, :after
+			} // -intro
+			
+			p {
+				padding: 60px;
+			} // p
+		} // .quotebox
+	} // bp($tablet)
+	
+	@include breakpoint($desktop) {
+		.quotebox {
+			@include translate(-10%, -50%);
+			bottom: auto;
+			left: 10%;
+			top: 50%;
+			width: 40%;
+		} // .quotebox
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		.quotebox {
+			padding: 40px;
+		} // .quotebox
+	} // bp($common)
+	
+	@include breakpoint($widescn) {
+		.quotebox {
+			padding: 60px;
+		} // .quotebox
+	} // bp($widescn)
+	
+	@include breakpoint(2000px) {
+		.quotebox {
+			padding: 80px;
+			
+			&-intro {
+				.quotemark {
+					position: absolute;
+					width: 100px;
+				} // .quotemark
+
+				// &:before, &:after {
+				// 	width: 100px;
+				// 	height: 100px;
+				// } // :before, :after
+			} // -intro
+			
+			p {
+				padding: 100px;
+			} // p
+		} // .quotebox
+	} // bp(2000px)
+} // .extraquote

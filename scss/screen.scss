@@ -1,0 +1,25 @@
+@import "../node_modules/normalize.css/normalize";
+
+// Core Partial
+@import "font";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "base";
+@import "layout";
+
+// Modules
+@import "modules/home";
+@import "modules/intro";
+@import "modules/challenge";
+@import "modules/veeammssage";
+@import "modules/recoverdata";
+@import "modules/extrainfo";
+@import "modules/extraintro";
+@import "modules/extraintro1";
+@import "modules/extramessage";
+@import "modules/answerveeam";
+@import "modules/extraquote";
+@import "modules/veritasresources";
+@import "modules/testimonial";
+@import "modules/freetrial";

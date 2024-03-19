@@ -1,0 +1,18 @@
+.answerveeam {
+	background: image("bg-answerveeam.jpg") 25% center/cover no-repeat;
+	
+	h1 {
+		@include translate(-50%, -50%);
+		@include fluid-type(390px, 1920px, 32px, 120px);
+		color: site-color('night');
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 90%;
+		
+		span {
+			color: site-color('primary');
+		} // span
+	} // h1
+} //.answerveeam

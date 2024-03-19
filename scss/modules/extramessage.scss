@@ -1,0 +1,46 @@
+.extramessage {
+	background: image("bg-extramsg.jpg") 25% center/cover no-repeat;
+
+	.extramsg {
+		@include transition(all 0.35s ease-in-out);
+		@include translate(-50%, -50%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		overflow: hidden;
+		width: 80%;
+		
+		&-txt {
+			&_2 {
+				display: none;
+				opacity: 0;
+				visibility: hidden;
+			} // _2
+		} // -txt
+	} // .extramsg
+	
+	@include breakpoint($desktop) {
+		.extramsg {
+			padding: 25px 30px;
+			width: 60%;
+		} // .extramsg
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		.extramsg {
+			padding: 45px 50px;
+		} // .extramsg
+	} // bp($common)
+	
+	@include breakpoint($widescn) {
+		.extramsg {
+			padding: 65px 80px;
+		} // .extramsg
+	} // bp($widescn)
+	
+	@include breakpoint(2000px) {
+		.extramsg {
+			padding: 85px 100px;
+		} // .extramsg
+	} // bp(2000px)
+} // .extramessage

@@ -1,0 +1,34 @@
+.veeammssage {
+	background: image("bg-message.png") bottom center/cover no-repeat;
+	
+	.message {
+		@include translate(-50%, -50%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 80%;
+
+		h3 {
+			@include fluid-type(390px, 1920px, 20px, 80px);
+			text-align:center;
+			
+			em {
+				font-style: normal;
+			} // em
+		} // h3
+	} // .message
+	
+	@include breakpoint($desktop) {
+		.message {
+			@include translate(-50%, -30%);
+			top: 30%;
+			width: 50%;
+		} // .message
+	} // bp($desktop)
+	
+	@include breakpoint($common) {
+		.message {
+			width: 40%;
+		} // .message
+	} // bp($common)
+} // .veeammssage
